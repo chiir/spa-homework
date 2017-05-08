@@ -1,3 +1,44 @@
 <h1>
   {{title}}
 </h1>
+
+<div>
+    <div class="itemtitle">現在時刻</div>
+    <div class="textitem">{{today | date:'yyyy/MM/dd HH:mm:ss'}}</div>
+</div>
+
+<div>
+    <div>
+        <div class="itemtitle">入力</div>
+        <input class="textitem" [(ngModel)]="value">
+    </div>
+
+    <div class="selectitem">
+        <label class="itemname">フォント</label>
+        <input type="radio" [(ngModel)]="font" value="sans-serif"> ゴシック
+        <input type="radio" [(ngModel)]="font" value="serif"> 明朝
+        <input type="radio" [(ngModel)]="font" value="fantasy"> 装飾的
+    </div>
+
+    <div class="selectitem">
+        <label class="itemname">色　　　</label>
+        <input type="radio" [(ngModel)]="color" value="black"> 黒
+        <input type="radio" [(ngModel)]="color" value="red"> 赤
+        <input type="radio" [(ngModel)]="color" value="blue"> 青
+    </div>
+
+    <div class="selectitem">
+        <label class="itemname">サイズ　</label>
+        <input type="radio" [(ngModel)]="size" value=".5"> 小
+        <input type="radio" [(ngModel)]="size" value="1"> 中
+        <input type="radio" [(ngModel)]="size" value="2"> 大
+    </div>
+
+    <div>
+        <div class="itemtitle">結果</div>
+        <div class="result" [style.font-family]="font" [style.color]="color" [style.font-size.em]="size">
+            {{value}}
+        </div>
+    </div>
+
+</div>
